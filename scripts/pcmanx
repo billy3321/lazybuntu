@@ -1,0 +1,11 @@
+#!/bin/bash
+
+apt-get install -y --force-yes pcmanx-gtk2
+
+if [ -a "$REAL_HOME/.pcmanx/pcmanx" ]; then
+    sed -i -e 's/\(WebBrowser=\)mozilla %s/\1firefox %s/' "$REAL_HOME/.pcmanx/pcmanx"
+else
+    sudo -u "$REAL_USER" mkdir -p "$REAL_HOME/.pcmanx"
+    sudo -u "$REAL_USER" cp scripts/files/pcmanx "$REAL_HOME/.pcmanx"
+fi
+

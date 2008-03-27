@@ -1,0 +1,14 @@
+#!/bin/sh
+HAS_SWIFTFOX=`grep swiftfox /etc/apt/sources.list`
+if [ -z "$HAS_SWIFTFOX" ]; then
+    echo "deb http://getswiftfox.com/builds/debian unstable non-free" >> /etc/apt/sources.list
+    apt-get update
+fi
+
+CPU=`scripts/cpu-type.py`
+echo "自動偵測這台電腦上的 CPU 架構：$CPU"
+if [ -n "$CPU" ]; then
+    apt-get -y --force-yes install "swiftfox-$CPU"
+else
+    echo '錯誤：Lazybuntu 無法辨識本機 CPU 種類，安裝 SwiftFox 失敗'
+fi

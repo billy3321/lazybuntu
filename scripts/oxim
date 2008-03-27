@@ -1,0 +1,13 @@
+#!/bin/sh
+echo '正在下載 oxim 中文輸入法'
+BASE_URL="http://apt.nc.hcc.edu.tw/pub/mirror/opendesktop.org.tw/OXIM/Distribute/Ubuntu/"
+mkdir -p ./temp/oxim
+$WGET -P temp/oxim "$BASE_URL/oxim_1.1.1-0ubuntu1_i386.deb"
+$WGET -P temp/oxim "$BASE_URL/oxim-bimsphone_1.1.1-0ubuntu1_i386.deb"
+$WGET -P temp/oxim "$BASE_URL/oxim-chewing_1.1.1-0ubuntu1_i386.deb"
+$WGET -P temp/oxim "$BASE_URL/oxim-gtk2-immodule_1.1.1-0ubuntu1_i386.deb"
+$WGET -P temp/oxim "$BASE_URL/oxim-qt3-immodule_1.1.1-0ubuntu1_i386.deb"
+
+echo '正在安裝 oxim 中文輸入法'
+scripts/debinstall.py temp/oxim/*.deb
+

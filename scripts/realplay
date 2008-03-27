@@ -1,0 +1,7 @@
+# Remove older version
+echo '移除系統上原本的 Real Player 套件...'
+apt-get --force-yes -y remove --purge realplay
+
+echo '安裝 Real Player 10...'
+scripts/download-install realplay 'http://archive.canonical.com/pool/partner/r/realplay/realplay_10.0.9-0feisty1_i386.deb'
+

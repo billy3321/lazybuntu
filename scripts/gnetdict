@@ -1,0 +1,31 @@
+#!/bin/sh
+
+mkdir -p temp/gnetdict
+
+TOP_DIR=`pwd`
+
+cd temp/gnetdict
+
+echo '正在下載 GNetDict 網路辭典前端介面...'
+
+$WGET 'http://rt.openfoundry.org/Foundry/Project/Download/Attachment/92915/63833/gnetdict_0.2.5.1-1ubuntu1_i386.deb'
+$WGET 'http://rt.openfoundry.org/Foundry/Project/Download/Attachment/92913/63831/gnetdict-0.2.5.1.tar.bz2'
+
+echo '正在安裝 GNetDict'
+"$TOP_DIR/scripts/debinstall.py" *.deb
+
+tar -xjf *.tar.bz2
+cd gnetdict-*/
+
+# create default scripts
+sudo -u "$REAL_USER" mkdir -p "$REAL_HOME/.gnetdict"
+
+# bug of gnetdict... svn files shouldn't be packaged
+rm -rf 'scripts/.svn'
+
+sudo -u "$REAL_USER" cp -r scripts "$REAL_HOME/.gnetdict"
+
+# prevent bug of gnetdict 0.2.5 :-(
+sudo -u "$REAL_USER" touch "$REAL_HOME/.gnetdict/config"
+
+cd "$TOP_DIR"

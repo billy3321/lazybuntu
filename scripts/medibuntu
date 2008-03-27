@@ -1,0 +1,12 @@
+#!/bin/sh
+
+HAS_MEDIBUNTU=`grep 'deb http://packages.medibuntu.org/' /etc/apt/sources.list`
+if [ -z "$HAS_MEDIBUNTU" ]; then
+    # FIXME: We should check the codename of ubuntu here: dapper, feisty or gutsy?
+    echo "deb http://packages.medibuntu.org/ $DISTRIB_CODENAME free non-free" | sudo tee -a /etc/apt/sources.list
+    wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | sudo apt-key add - && sudo apt-get update
+else
+    echo 'Medibuntu 套件庫已經存在'
+fi
+
+apt-get -y --force-yes install w32codecs
