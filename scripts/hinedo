@@ -1,0 +1,7 @@
+#!/bin/sh
+URL=`$WGET -O - 'http://rt.openfoundry.org/Foundry/Project/Download/?Queue=814' | sed -n 's/^.*<a href="\(.*hinedo.*ubuntu.*i386.deb\)">.*$/\1/p' | sed '2,2d'`
+if [ x"$DISTRIB_CODENAME" = x"gutsy" ]; then
+    scripts/download-install hinedo "http://rt.openfoundry.org$URL"
+else
+    echo "Hinedo 目前沒有給 $DISTRIB_CODENAME 使用的版本，取消安裝。"
+fi

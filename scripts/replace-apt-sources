@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# backup original sources.list
+mv /etc/apt/sources.list /etc/apt/sources.list.bak
+
+# replace apt sources with our own
+cat > '/etc/apt/sources.list' << EOF
+deb http://ftp.twaren.net/Linux/Ubuntu/ubuntu/ $DISTRIB_CODENAME main universe restricted multiverse
+deb-src http://ftp.twaren.net/Linux/Ubuntu/ubuntu/ $DISTRIB_CODENAME main universe restricted multiverse
+
+deb http://security.ubuntu.com/ubuntu/ $DISTRIB_CODENAME-security universe main multiverse restricted
+deb-src http://security.ubuntu.com/ubuntu/ $DISTRIB_CODENAME-security universe main multiverse restricted
+
+deb http://ftp.twaren.net/Linux/Ubuntu/ubuntu/ $DISTRIB_CODENAME-updates universe main multiverse restricted
+deb-src http://ftp.twaren.net/Linux/Ubuntu/ubuntu/ $DISTRIB_CODENAME-updates universe main multiverse restricted
+EOF
+

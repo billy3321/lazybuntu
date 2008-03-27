@@ -1,0 +1,27 @@
+*** 檢查 Lazybuntu 執行時是否有網路，如果沒有，
+則啟動網路設定程式 (若是選用 ADSL 則啟動 pppoeconf)
+
+確定連上網路後，要先執行一次 apt-get update (剛裝好的 Gutsy 會需要)
+
+確定使用者有在 source.list 內加入 apt source
+並且有開啟 multiverse 套件庫 (極度重要！) (Gutsym 預設全都有開啟)
+
+將 scripts/mplayer 改成 shell script，不需要使用 python
+
+增加 ubuntu-restricted-extras
+
+調整 IE6 的字型設定
+
+改善 pppoeconf 的介面
+
+增加 ndiswrapper 支援
+
+加入更多遊戲，可以從 http://www.getdeb.net/ 找。
+
+加入設定 WOW 的工具
+
+改善 theme 的安裝
+
+考慮如何支援 64 bit 環境
+
+也許可以考慮使用 makeself 來包裝自解檔，以單一檔案的形式發行

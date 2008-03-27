@@ -1,0 +1,21 @@
+#!/bin/sh
+
+echo "解除安裝系統原本安裝的 Flash 播放器"
+apt-get -y --force-yes --purge remove mozilla-plugin-gnash flashplugin-nonfree
+
+echo "正在下載 Flash 9 beta..."
+mkdir -p temp/flash_beta
+TOP_DIR=`pwd`
+cd temp/flash_beta
+$WGET 'http://download.macromedia.com/pub/labs/flashplayer9_update/flashplayer9_install_linux_100107.tar.gz'
+
+echo "正在安裝 Flash 9 beta"
+tar -zxf flashplayer9_install_linux_100107.tar.gz
+cd install_flash_player_9_linux/
+rm -rf /usr/local/lib/flash_beta
+mkdir /usr/local/lib/flash_beta
+cp libflashplayer.so /usr/local/lib/flash_beta
+ln -sf /usr/local/lib/flash_beta/libflashplayer.so /etc/alternatives/firefox-flashplugin
+ln -sf /etc/alternatives/firefox-flashplugin /usr/lib/firefox/plugins/flashplugin-alternative.so
+
+cd "$TOP_DIR"

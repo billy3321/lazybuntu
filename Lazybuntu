@@ -1,0 +1,42 @@
+#!/bin/sh
+# Startup script of Lazybuntu
+# License: GNU GPL
+# Copyright (C) 2007 Houng Jen Yee (PCMan) <pcman.tw@gmail.com>
+
+DIR=`dirname $0`
+cd "$DIR"
+
+# Export distribution codename (gutsy, feisty, ...etc)
+export `cat /etc/*release|grep DISTRIB_CODENAME`
+
+# check the path of desktop dir
+XDG_USER_DIRS=~/.config/user-dirs.dirs
+if [ -f "$XDG_USER_DIRS" ]; then
+    . ~/.config/user-dirs.dirs
+fi
+
+if [ -z "$XDG_DESKTOP_DIR" ]; then
+    export DESKTOP_DIR=$HOME/Desktop
+else
+    export DESKTOP_DIR=$XDG_DESKTOP_DIR
+fi
+
+# Ensure there is a desktop dir, if this doesn't exist, that's a bug of ubuntu.
+if [ ! -e "$DESKTOP_DIR" ]; then
+    mkdir -p  "$DESKTOP_DIR"
+fi
+
+# symlink desktop dir to ~/Desktop for compatibility
+if [ "$DESKTOP_DIR" != "$HOME/Desktop"  -a  ! -e "$HOME/Desktop" ]; then
+        ln -s "$DESKTOP_DIR" "$HOME/Desktop"
+fi
+
+# Preserve the user name
+export REAL_USER="$USER"
+export REAL_HOME="$HOME"
+
+# wget command used to download files
+export WGET="wget --tries=2 --timeout=120 -c"
+
+# run Lazybuntu with root access
+gksudo --message "執行 'Lazybuntu 懶人包' 會修改系統設定，並會安裝新軟體，所以需要系統管理員權限。 請輸入系統管理密碼，才能繼續執行。 (在 Ubuntu 下，預設這就是你登入系統時所用的密碼。)" --preserve-env ui/Lazybuntu.py
