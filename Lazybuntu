@@ -3,11 +3,20 @@
 # License: GNU GPL
 # Copyright (C) 2007 Houng Jen Yee (PCMan) <pcman.tw@gmail.com>
 
+# 避開 8.04 gksudo env_reset 的問題
+mkdir -p temp
+ENV_EXPORT_SCRIPT="temp/env-export.sh"
+touch "$ENV_EXPORT_SCRIPT"
+chmod a+x "$ENV_EXPORT_SCRIPT"
+echo "#!/bin/bash" > "$ENV_EXPORT_SCRIPT"
+
+
 DIR=`dirname $0`
 cd "$DIR"
 
 # Export distribution codename (gutsy, feisty, ...etc)
 export `cat /etc/*release|grep DISTRIB_CODENAME`
+echo 'export `cat /etc/*release|grep DISTRIB_CODENAME`' >> $ENV_EXPORT_SCRIPT
 
 # check the path of desktop dir
 XDG_USER_DIRS=~/.config/user-dirs.dirs
@@ -17,8 +26,10 @@ fi
 
 if [ -z "$XDG_DESKTOP_DIR" ]; then
     export DESKTOP_DIR=$HOME/Desktop
+    echo "export DESKTOP_DIR=\"$HOME/Desktop\"" >> $ENV_EXPORT_SCRIPT
 else
     export DESKTOP_DIR=$XDG_DESKTOP_DIR
+    echo "export DESKTOP_DIR=\"$XDG_DESKTOP_DIR\"" >> $ENV_EXPORT_SCRIPT
 fi
 
 # Ensure there is a desktop dir, if this doesn't exist, that's a bug of ubuntu.
@@ -34,9 +45,12 @@ fi
 # Preserve the user name
 export REAL_USER="$USER"
 export REAL_HOME="$HOME"
+echo "export REAL_USER=\"$USER\"" >> $ENV_EXPORT_SCRIPT
+echo "export REAL_HOME=\"$HOME\"" >> $ENV_EXPORT_SCRIPT
 
 # wget command used to download files
 export WGET="wget --tries=2 --timeout=120 -c"
+echo "export WGET=\"wget --tries=2 --timeout=120 -c\"" >> $ENV_EXPORT_SCRIPT
 
 # run Lazybuntu with root access
 gksudo --message "執行 'Lazybuntu 懶人包' 會修改系統設定，並會安裝新軟體，所以需要系統管理員權限。 請輸入系統管理密碼，才能繼續執行。 (在 Ubuntu 下，預設這就是你登入系統時所用的密碼。)" --preserve-env ui/Lazybuntu.py

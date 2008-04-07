@@ -392,6 +392,7 @@ class MainWin:
 
         # FIXME: working network should be available before this line
         f.write( "apt-get update\n" )    # This is required
+        f.write( ". temp/env-export.sh\n" )    # This is required
 
         for page in self.tool_list.all_tools:
             f.writelines( page.get_command_lines() )
