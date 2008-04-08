@@ -3,6 +3,9 @@
 # backup original sources.list
 mv /etc/apt/sources.list /etc/apt/sources.list.bak
 
+# ubuntu 8.04 gksudo workaround
+. temp/env-export.sh
+
 # replace apt sources with our own
 cat > '/etc/apt/sources.list' << EOF
 deb http://ftp.twaren.net/Linux/Ubuntu/ubuntu/ $DISTRIB_CODENAME main universe restricted multiverse
