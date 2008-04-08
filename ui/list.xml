@@ -18,9 +18,11 @@ cwTTF 原先是 cwTex 排版系統裡面使用的一套中文字型，
 由 EdwardLee 前輩轉成 ttf 格式以 GPL 授權釋出，推薦安裝。
 </tool>
 
+<!--
 <tool title="安裝 OpenDesktop 字型" command="scripts/download-install opendesktop-font ftp://ftp.csie.nuk.edu.tw/pub/opendesktop-fonts/opendesktop-fonts_1.4.2-1ubuntu1_all.deb" used="1">
 由 http://www.opendesktop.org.tw/ 提供的中文字型，Unicode 支援完整。
 </tool>
+-->
 
 </category>
 
@@ -35,10 +37,12 @@ Windows 下知名 BBS 連線軟體 PCMan 的 Linux 版本
 愛上 BBS 的宅男宅女和 Ptt 鄉民必備！
 </tool>
 
+<!--
 <tool title="安裝 Firefox 的 Flash 外掛" command="scripts/flash-beta" used="1">
 讓 Firefox 可以正常顯示 Flash 動畫
 (這裡安裝的是 Adobe 官方網站提供的 9.0 beta 版，不是 Ubuntu 的官方套件)
 </tool>
+-->
 
 <tool title="安裝 Filezilla 3 - 強大好用的 FTP 連線軟體" command="apt-get -y --force-yes install filezilla" used="1">
 Filezilla 3 是 Windows 下知名 FTP 連線軟體 Filezilla 重新開發的跨平台版本。
@@ -50,7 +54,7 @@ Filezilla 3 是 Windows 下知名 FTP 連線軟體 Filezilla 重新開發的跨�
 aMule 是由 Windows 下 eMule 移植而來的跨平台軟體。
 </tool>
 
-<tool title="安裝 Deluge BT 下載軟體" command="scripts/deludge-torrent" used="1">
+<tool title="安裝 Deluge BT 下載軟體" command="apt-get -y --force-yes install deluge-torrent" used="1">
 Linux 下相當好用的 BT 下載軟體，滿足你的 P2P 下載需求。
 </tool>
 
@@ -60,8 +64,8 @@ Internet Explorer 可以在 Linux 安裝並上執行。
 &lt;span color="red" &gt;請注意：根據微軟的授權合約，你需要有正版 Windows 授權才能使用 IE&lt;/span&gt;
 </tool>
 
-<tool title="安裝 Skype 網路電話 2.0 Beta" command="scripts/download-install skype 'http://www.skype.com/go/getskype-linux-beta-ubuntu'" used="1" >
-Skype 網路電話官方發行的 Linux 版本，這是 2.0 測試版，具有許多令人興奮的新功能。
+<tool title="安裝 Skype 網路電話 2.0" command="scripts/download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu'" used="1" >
+Skype 網路電話官方發行的 Linux 版本，這是 2.0 正式版，具有許多令人興奮的新功能。
 </tool>
 
 <tool title="安裝 SwiftFox - 非官方最佳化版的 Firefox" command="scripts/swiftfox" used="1">
@@ -124,11 +128,12 @@ Audacious 在正確設定下，能夠處理大部份的編碼問題，所以仍�
 RealNetworks 公司的 RealPlayer 播放程式，官方有推出 Linux 版本，
 可以播放網路上常見的 rm, rmvb 等格式，還有一些串流媒體。
 </tool>
-
+<!--
 <tool title="安裝 Hinedo 網路廣播收聽程式" command="scripts/hinedo" used="1">
 透過縮小在工作列的小圖示，叫出選單，輕鬆收聽 Hinet 提供的網路廣播。
 不用看大量的網路廣告，更不用開龐大的網路瀏覽器，就能直接收聽。
 </tool>
+-->
 
 <tool title="安裝 GStreamer 的各種影音解碼外掛" command="apt-get -y --force-yes install gstreamer0.10-plugins-ugly gstreamer0.10-plugins-ugly-multiverse gstreamer0.10-pitfdll gstreamer0.10-plugins-bad gstreamer0.10-plugins-bad-multiverse" used="1">
 GStreamer 是一個影音的程式庫，目前 Linux 上有不少多媒體軟體，需要依賴它才能運作
@@ -147,7 +152,7 @@ GStreamer 是一個影音的程式庫，目前 Linux 上有不少多媒體軟體
 
 <category title="光碟工具" image="media-optical">
 
-<tool title="安裝 K3B - Linux 下最強的燒錄軟體" command="apt-get -y --force-yes install k3b k3b-i18n libk3b2-mp3" used="1">
+<tool title="安裝 K3B - Linux 下最強的燒錄軟體" command="apt-get -y --force-yes install k3b k3b-i18n libk3b2-*" used="1">
 Linux 下最強大的圖形介面燒錄軟體，功能比起 Windows 下的 Nero，絲毫不遜色。
 不論是處理資料、影片、音樂光碟、光碟對拷，都難不倒它，可支援 CD 和 DVD。
 </tool>
