@@ -35,6 +35,10 @@ def connect_test():    # Dirty trick used to test if the network connection is a
             return True
     return False
 
+def get_codename():
+    fin, fout = os.popen2("lsb_release -cs")
+    codename = fout.read().strip()
+    return codename
 
 def ensure_network():
     ''' test availibility of network connection '''
@@ -42,10 +46,13 @@ def ensure_network():
     #    return True
 
     # config network settings
+    codename = get_codename()
+
     dlg = gtk.MessageDialog( None, gtk.DIALOG_MODAL,  gtk.MESSAGE_QUESTION, gtk.BUTTONS_OK_CANCEL)
     dlg.set_markup('<b>Lazybuntu 需要網路才能執行，請選擇你使用的網路種類：</b>')
     adsl_btn=gtk.RadioButton( None, '使用需要使用者名稱與密碼的寬頻連線來連線\n( 需要帳號密碼的 ADSL 請選擇此項，例如浮動 IP 的 Hinet ADSL )' )
-    dlg.vbox.pack_start(adsl_btn, False, True, 2)
+    if codename != "hardy":
+        dlg.vbox.pack_start(adsl_btn, False, True, 2)
     other_btn=gtk.RadioButton(adsl_btn, '透過其他方式 - DHCP 自動取得、固定 IP、或是數據機電話撥接...\n( 固定 IP 的 ADSL，視服務業者，有可能需要使用此項，例如 Hinet, So-net)')
     dlg.vbox.pack_start(other_btn, False, True, 2)
     no_btn=gtk.RadioButton(adsl_btn, '我已連接到網際網路，不需要額外設定\n( 使用無線網路，請點選螢幕右上角工作列中的無線網路圖示，即可連線 )')
