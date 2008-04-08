@@ -1,5 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 # Copyright (C) 2007 洪任諭 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+# Copyright (C) 2008 朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>
 # Released under GNU General Public License
 
 # ie4linux requires cabextract, and we need to
@@ -17,17 +18,17 @@ mkdir -p "$TMP_DIR"
 cd "$TMP_DIR"
 
 #download ie4linux
-$WGET http://www.tatanka.com.br/ies4linux/downloads/ies4linux-latest.tar.gz
-echo '解壓縮檔案...'
-tar -zxvf "ies4linux-latest.tar.gz" > /dev/null
-
-# run ie4linux with sane default values
-cd ies4linux-*
+VERSION="2.99.0.1"
+wget -c "http://www.tatanka.com.br/ies4linux/downloads/ies4linux-${VERSION}.tar.gz"
+tar zxf ies4linux-${VERSION}.tar.gz
+cd ies4linux-${VERSION}/
+sed -i -e 's/\(pid=\$.\)\(wget.*$\)/\1LC_ALL=C LANG=C \2/' lib/functions.sh
 
 echo '執行 IE 安裝工具： ies4linux'
-# install IE6 as normal user due to security considerations
-# Answer "yes" for the user here
-echo -e "y\n" | sudo -u $REAL_USER ./ies4linux --locale TW --no-install-ie55 --no-install-ie5 --install-flash --no-install-icon --basedir "$REAL_HOME/.ies4linux" --bindir "$REAL_HOME/.ies4linux/bin" --downloaddir "$REAL_HOME/.ies4linux/download"
+while [ ! -h "/home/$REAL_USER/bin/ie6" ]
+do
+    su -c "./ies4linux --no-gui --locale TW --no-desktop-icon" $REAL_USER
+done
 
 cd ..
 
@@ -54,11 +55,11 @@ Type=Application
 Categories=Categories=Application;Network;
 EOF
 
-sudo -u $REAL_USER cp "/usr/share/applications/msie6.desktop" "$DESKTOP_DIR"
-sudo -u $REAL_USER mkdir -p "$REAL_HOME/.wine/drive_c/windows/fonts/"
-sudo -u $REAL_USER mkdir -p "$REAL_HOME/.ies4linux/ie6/drive_c/windows/fonts/"
-sudo -u $REAL_USER ln -sf /usr/share/fonts/truetype/arphic/uming.ttf "$REAL_HOME/.wine/drive_c/windows/fonts/uming.ttf"
-sudo -u $REAL_USER ln -sf /usr/share/fonts/truetype/arphic/uming.ttf "$REAL_HOME/.ies4linux/ie6/drive_c/windows/fonts/uming.ttf"
+su -c "cp \"/usr/share/applications/msie6.desktop\" \"$DESKTOP_DIR\" " $REAL_USER
+su -c "mkdir -p \"$REAL_HOME/.wine/drive_c/windows/fonts/\" " $REAL_USER
+su -c "mkdir -p \"$REAL_HOME/.ies4linux/ie6/drive_c/windows/fonts/\" " $REAL_USER
+su -c "ln -sf /usr/share/fonts/truetype/arphic/uming.ttf \"$REAL_HOME/.wine/drive_c/windows/fonts/uming.ttf\" " $REAL_USER
+su -c "ln -sf /usr/share/fonts/truetype/arphic/uming.ttf \"$REAL_HOME/.ies4linux/ie6/drive_c/windows/fonts/uming.ttf\" " $REAL_USER
 
 echo 'Internet Explorer 6.0 安裝完成!'
 
