@@ -28,6 +28,7 @@ echo '執行 IE 安裝工具： ies4linux'
 while [ ! -h "/home/$REAL_USER/bin/ie6" ]
 do
     su -c "./ies4linux --no-gui --locale TW --no-desktop-icon" $REAL_USER
+    sleep 1
 done
 
 cd ..
