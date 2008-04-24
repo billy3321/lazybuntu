@@ -388,6 +388,7 @@ class MainWin:
         sel.select_iter(it)
         self.tool_list.left_pane.set_sensitive(False)
         self.apply_btn.set_sensitive(False)
+        self.clear_btn.set_sensitive(False)
 
         # temp dir
         tmpdir='temp'
