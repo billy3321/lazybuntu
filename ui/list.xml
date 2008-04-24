@@ -128,12 +128,10 @@ Audacious 在正確設定下，能夠處理大部份的編碼問題，所以仍�
 RealNetworks 公司的 RealPlayer 播放程式，官方有推出 Linux 版本，
 可以播放網路上常見的 rm, rmvb 等格式，還有一些串流媒體。
 </tool>
-<!--
 <tool title="安裝 Hinedo 網路廣播收聽程式" command="scripts/hinedo" used="1">
 透過縮小在工作列的小圖示，叫出選單，輕鬆收聽 Hinet 提供的網路廣播。
 不用看大量的網路廣告，更不用開龐大的網路瀏覽器，就能直接收聽。
 </tool>
--->
 
 <tool title="安裝 GStreamer 的各種影音解碼外掛" command="apt-get -y --force-yes install gstreamer0.10-plugins-ugly gstreamer0.10-plugins-ugly-multiverse gstreamer0.10-pitfdll gstreamer0.10-plugins-bad gstreamer0.10-plugins-bad-multiverse" used="1">
 GStreamer 是一個影音的程式庫，目前 Linux 上有不少多媒體軟體，需要依賴它才能運作
