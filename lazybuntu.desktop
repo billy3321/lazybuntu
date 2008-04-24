@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Lazybuntu
+Name[zh_TW]=Lazybuntu 懶人包
+Comment=Lazybuntu
+Comment[zh_TW]=簡易安裝各種好用軟體以及調較的懶人包
+Exec=./Lazybuntu
+Icon=applications-system
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Network;InstantMessaging;
