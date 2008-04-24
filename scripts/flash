@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo "解除安裝系統原本安裝的 Flash 播放器"
+apt-get -y --force-yes --purge remove mozilla-plugin-gnash swfdec-mozilla
+
+echo "正在下載、安裝 Flash 9"
+apt-get -y --force-yes install flashplugin-nonfree
+
+echo "正在修正 Flash 中文問題"
+rm /etc/fonts/conf.d/49-sansserif.conf
+
