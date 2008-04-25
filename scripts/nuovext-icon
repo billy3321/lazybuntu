@@ -7,9 +7,9 @@ TOP_DIR=`pwd`
 cd temp/nuovext
 
 # Gnome
-$WGET 'http://www.gnome-look.org/content/download.php?content=56625&id=1'
+$WGET 'http://nuovext.pwsp.net/files/nuoveXT.2.2.tar.bz2'
 # KDE
-$WGET 'http://www.kde-look.org/content/download.php?content=62630&id=1'
+$WGET 'http://nuovext.pwsp.net/files/nuoveXT-2.2_KDE.tar.gz'
 
 FILES=`dir *.tar.gz`
 for theme in $FILES
