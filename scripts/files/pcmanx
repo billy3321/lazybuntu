@@ -14,8 +14,8 @@ MouseSupport=0
 ShowTrayIcon=1
 ShowStatusBar=1
 UseWgetFiles=0
-WebBrowser=firefox %s
-MailClient=mozilla %s
+WebBrowser=xdg-open %s
+MailClient=xdg-email %s
 PopupNotifier=1
 PopupTimeout=6
 
