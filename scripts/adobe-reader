@@ -36,4 +36,7 @@ sudo -u "$REAL_USER" cat > "$REAL_HOME/.adobe/Acrobat/8.0/Preferences/acrogre.co
 /usr/lib/firefox/
 EOF
 
+su -c "mkdir -p $REAL_HOME/.local/share/applications" "$REAL_USER"
+su -c "xdg-mime default AdobeReader.desktop application/pdf" "$REAL_USER"
+
 cd "$TOP_DIR"

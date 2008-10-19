@@ -9,7 +9,7 @@ import gtk, gobject, vte
 import os, sys
 import xml.sax
 
-VERSION='0.1.4'
+VERSION='0.1.5'
 
 # if the user choosed yes, return True; otherwise, return False
 def query_yes_no(msg, parent=None):
@@ -78,7 +78,7 @@ def ensure_network():
     elif use_other:
         os.system('network-admin')
 
-    return connect_test()    # test again after settings
+    return True #connect_test()    # test again after settings
 
 
 def ensure_apt_sources():
@@ -315,8 +315,9 @@ class MainWin:
         # upper parts: main GUI
         self.tool_list=tool_list=ToolListWidget('ui/list.xml')
         tool_list.list.insert( 0, ('ubuntu', '歡迎使用', WelcomePage()) )
-        self.games_page=GamesPage()
-        tool_list.list.append( ('applications-games', '各種遊戲', self.games_page) )
+        if os.path.exists('ui/games.xml'):
+            self.games_page=GamesPage()
+            tool_list.list.append( ('applications-games', '各種遊戲', self.games_page) )
         self.final_page=FinalPage()
         tool_list.list.append( ('gnome-app-install', '完成', self.final_page) )
         sel=tool_list.left_pane.get_selection()
@@ -404,8 +405,9 @@ class MainWin:
 
         for page in self.tool_list.all_tools:
             f.writelines( page.get_command_lines() )
-        for page in self.games_page.all_tools:
-            f.writelines( page.get_command_lines() )
+        if os.path.exists('ui/games.xml'):
+            for page in self.games_page.all_tools:
+                f.writelines( page.get_command_lines() )
         # Dirty hack: fix permission problems of unknown cause...
         f.write( "echo '\x1b[1;33m正在修正檔案權限問題，請稍候...\x1b[m'\nscripts/fix-perms\n" )
         f.write( "update-desktop-database\n" )
