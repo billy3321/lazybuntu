@@ -9,7 +9,7 @@ import gtk, gobject, vte
 import os, sys
 import xml.sax
 
-VERSION='0.1.4'
+VERSION='0.1.5'
 
 # if the user choosed yes, return True; otherwise, return False
 def query_yes_no(msg, parent=None):
