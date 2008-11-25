@@ -64,7 +64,7 @@ Internet Explorer 可以在 Linux 安裝並上執行。
 &lt;span color="red" &gt;請注意：根據微軟的授權合約，你需要有正版 Windows 授權才能使用 IE&lt;/span&gt;
 </tool>
 
-<tool title="安裝 Skype 網路電話 2.0" command="scripts/download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu'" used="1" >
+<tool title="安裝 Skype 網路電話 2.0" command="scripts/skype.sh" used="1" >
 Skype 網路電話官方發行的 Linux 版本，這是 2.0 正式版，具有許多令人興奮的新功能。
 </tool>
 
