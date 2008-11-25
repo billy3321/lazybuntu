@@ -1,7 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 # Startup script of Lazybuntu
 # License: GNU GPL
 # Copyright (C) 2007 Houng Jen Yee (PCMan) <pcman.tw@gmail.com>
+# Copyright (C) 2008 Zhe-Wei Lin (billy3321) <billy3321 AT gmail.com>
+# Modified by billy3321 at 25 Nov 2008
 
 # 避開 8.04 gksudo env_reset 的問題
 mkdir -p temp
@@ -15,12 +17,12 @@ DIR=`dirname $0`
 cd "$DIR"
 
 # Export distribution codename (gutsy, feisty, ...etc)
-export `cat /etc/*release|grep DISTRIB_CODENAME`
-echo 'export `cat /etc/*release|grep DISTRIB_CODENAME`' >> $ENV_EXPORT_SCRIPT
+export "`cat /etc/*release|grep DISTRIB_CODENAME`"
+echo "export DISTRIB_CODENAME=\"`cat /etc/*release|grep DISTRIB_CODENAME | cut -d "=" -f 2`\"" >> $ENV_EXPORT_SCRIPT
 
 # Export architecture as ARCH_NAME (i686,x86_64, ...etc)
 export ARCH_NAME="`uname -a | cut -d " " -f 12`"
-echo 'export ARCH_NAME="`uname -a | cut -d " " -f 12`"' >> $ENV_EXPORT_SCRIPT
+echo "export ARCH_NAME=\"`uname -a | cut -d " " -f 12`\"" >> $ENV_EXPORT_SCRIPT
 
 # check the path of desktop dir
 XDG_USER_DIRS=~/.config/user-dirs.dirs
