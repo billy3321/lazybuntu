@@ -9,7 +9,7 @@ Ubuntu 安裝光碟因為容量的關係，預設沒有包含中文介面。
 </tool>
 
 <tool title="安裝/設定 中文輸入法" command="scripts/cin.py" used="1">
-讓你安裝你想要的中文輸入法，有 scim, gcin, 或 oxim 可選擇。
+讓你安裝你想要的中文輸入法，有 scim, gcin 可選擇。
 </tool>
 
 <tool title="安裝 cwTTF 高品質中文字型" command="scripts/cwttf" used="1">
@@ -239,12 +239,18 @@ Ubuntu 預設的圖示還不難看，不過，nuoveXT 更好看。這個佈景�
 長久以來，一直蟬聯 Gnome-Look 網站最高使用者評價。
 </tool>
 
+<tool title="安裝Ubuntu Tweak校調工具" command="scripts/ubuntu-tweak.sh" used="1">
+Ubuntu Tweak是一款快速好用的挍調工具，若您在往後的使用中需要
+特定軟體或是調整您的作業系統，Ubuntu Tweak可以提供您一個快速
+方便的設定界面。
+</tool>
+
 </category>
 
 
 <category title="其他未分類" image="applications-other">
 
-<tool title="安裝 MadEdit - 支援 16 進位編輯、中文轉碼的超強國產編輯器" command="scripts/download-install madedit http://nchc.dl.sourceforge.net/sourceforge/madedit/madedit_0.2.8-1_i386.deb" used="1">
+<tool title="安裝 MadEdit - 支援 16 進位編輯、中文轉碼的超強國產編輯器" command="scripts/madedit.sh" used="1">
 MadEdit 堪稱臺灣自由軟體之光。 它是目前最強大好用的跨平台文字編輯器之一
 由台灣人所開發。支援 16 進位編輯，語法高亮度彩色、文字編碼自動偵測、完整中文支援、
 Regular expression 搜尋，多重檔案尋找/取代。介面友善美觀、功能強大，絕對值得一試！

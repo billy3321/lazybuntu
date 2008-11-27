@@ -6,6 +6,7 @@
 SAYYA=edt1023.sayya.org
 CLE=cle.linux.org.tw
 nosee=noseeing-8.tar.gz
+#FIXME:目前已有noseeing-10.tar.gz，觀察使用者反應後更新。
 TOPDIR=`pwd`
 [ -d temp/noseeing ] || mkdir -p temp/noseeing
 cd temp/noseeing

@@ -1,7 +1,28 @@
-# Remove older version
+#!/bin/bash
+# -*- coding: utf-8 -*-
+# Copyright (C) 2007 洪任諭 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+# Copyright (C) 2008 林哲瑋 Zhe-Wei Lin (bill3321,雨蒼) <bill3321 -AT- gmail.com>
+# Last Modified: 25 Nov 2008
+# Released under GNU General Public License
+# Download and install realplayer for i686 and x86_64 ubuntu
+# Please run as root.
+# Remove older version realplayer
+
+case "$ARCH_NAME" in
+
+i686)
 echo '移除系統上原本的 Real Player 套件...'
 apt-get --force-yes -y remove --purge realplay
 
 echo '安裝 Real Player 10...'
 scripts/download-install realplay 'http://archive.canonical.com/pool/partner/r/realplay/realplay_10.0.9-0feisty1_i386.deb'
-
+;;
+x86_64)
+echo "目前暫不支援 $ARCH_NAME 硬體架構安裝。"
+;;
+#FIXME:use
+# http://www.real.com/realcom/R?href=http://forms.real.com/real/player/download.html?f=unix/RealPlayer11GOLD.bin
+*)
+echo "Real Player 目前尚未支援 $ARCH_NAME 硬體架構，取消安裝。"
+;;
+esac
