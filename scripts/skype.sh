@@ -21,7 +21,7 @@ x86_64)
  apt-get -y --force-yes install ia32-libs lib32asound2 libasound2-plugins
  scripts/download-install getlibs 'http://boundlesssupremacy.com/Cappy/getlibs/getlibs-all.deb'
  scripts/download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu-amd64'
- getlibs -p libqtcore4 libqtgui4 bluez-alsa
+ getlibs --yes -p libqtcore4 libqtgui4 bluez-alsa
  ;;
  hardy)
  apt-get -y --force-yes install ia32-libs lib32asound2 libasound2-plugins
@@ -31,7 +31,7 @@ x86_64)
  apt-get -y --force-yes install ia32-libs lib32asound2
  scripts/download-install getlibs 'http://boundlesssupremacy.com/Cappy/getlibs/getlibs-all.deb'
  scripts/download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu-amd64'
- getlibs /usr/bin/skype
+ getlibs --yes /usr/bin/skype
  ;;
  *)
  echo "抱歉，$ARCH_NAME硬體架構版本之skype不支援ubuntu $DISTRIB_NAME。"
