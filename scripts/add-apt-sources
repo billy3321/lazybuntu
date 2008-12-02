@@ -33,4 +33,14 @@ else
 fi
 }
 
+function add_swiftfox() {
+HAS_SWIFTFOX=`grep swiftfox /etc/apt/sources.list`
+if [ -z "$HAS_SWIFTFOX" ]; then
+  echo "deb http://getswiftfox.com/builds/debian unstable non-free" >> /etc/apt/sources.list
+    apt-get update
+  else
+    echo 'Swifrfox 套件庫已經存在'
+fi
+}
+
 #END
