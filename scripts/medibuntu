@@ -13,10 +13,10 @@ add_medibuntu
 
 case "$ARCH_NAME" in
 i686)
-apt-get -y --force-yes install w32codecs
+apt-get -y --force-yes install non-free-codecs w32codecs
 ;;
 x86_64)
-apt-get -y --force-yes install w64codecs
+apt-get -y --force-yes install non-free-codecs w64codecs
 ;;
 *)
 echo "抱歉，Lazybuntu目前不支援 $ARCH_NAME 硬體架構。"

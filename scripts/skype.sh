@@ -16,22 +16,30 @@ scripts/download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu'
 x86_64)
 # 將以下網址之內容執行於下
 # http://ubuntuforums.org/showthread.php?t=432295
- case "$DISTRIB_CODENAME" in
- intrepid)
- apt-get -y --force-yes install ia32-libs lib32asound2 libasound2-plugins
- scripts/download-install getlibs 'http://boundlesssupremacy.com/Cappy/getlibs/getlibs-all.deb'
- scripts/download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu-amd64'
- getlibs --yes -p libqtcore4 libqtgui4 bluez-alsa
- ;;
- hardy)
- apt-get -y --force-yes install ia32-libs lib32asound2 libasound2-plugins
- scripts/download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu-amd64'
- ;;
- gutsy|feisty|edgy)
- apt-get -y --force-yes install ia32-libs lib32asound2
- scripts/download-install getlibs 'http://boundlesssupremacy.com/Cappy/getlibs/getlibs-all.deb'
- scripts/download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu-amd64'
- getlibs --yes /usr/bin/skype
+# case "$DISTRIB_CODENAME" in
+# intrepid)
+# apt-get -y --force-yes install ia32-libs lib32asound2 libasound2-plugins
+# scripts/download-install getlibs 'http://boundlesssupremacy.com/Cappy/getlibs/getlibs-all.deb'
+# scripts/download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu-amd64'
+# getlibs --yes -p libqtcore4 libqtgui4 bluez-alsa
+# ;;
+# hardy)
+# apt-get -y --force-yes install ia32-libs lib32asound2 libasound2-plugins
+# scripts/download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu-amd64'
+# ;;
+# gutsy|feisty|edgy)
+# apt-get -y --force-yes install ia32-libs lib32asound2
+# scripts/download-install getlibs 'http://boundlesssupremacy.com/Cappy/getlibs/getlibs-all.deb'
+# scripts/download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu-amd64'
+# getlibs --yes /usr/bin/skype
+#安裝來自medibuntu之skype
+
+ . add-apt-sources
+ 
+ add_medibuntu
+
+ apt-get install non-free-codecs skype
+
  ;;
  *)
  echo "抱歉，$ARCH_NAME硬體架構版本之skype不支援ubuntu $DISTRIB_NAME。"
