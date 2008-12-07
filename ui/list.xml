@@ -90,7 +90,7 @@ Linux 下簡單易用的 RSS Feed 閱讀程式
 
 <category title="多媒體影音" image="applications-multimedia">
 
-<tool title="加入 Medibuntu 套件庫並安裝 Win32 Codecs" command="scripts/medibuntu" used="1">
+<tool title="加入 Medibuntu 套件庫並安裝 Win32 Codecs" command="scripts/multimedia-repos" used="1">
 Ubuntu 官方因為某些法規及專利問題，沒有支援許多常用的影音格式。
 於是有人成立非官方的 Medibuntu 套件庫，提供多種影音 Codecs
 一般使用者幾乎都會需要用到這個非官方套件庫，建議考慮安裝。
@@ -133,7 +133,7 @@ RealNetworks 公司的 RealPlayer 播放程式，官方有推出 Linux 版本，
 不用看大量的網路廣告，更不用開龐大的網路瀏覽器，就能直接收聽。
 </tool>
 
-<tool title="安裝 GStreamer 的各種影音解碼外掛" command="apt-get -y --force-yes install gstreamer0.10-plugins-ugly gstreamer0.10-plugins-ugly-multiverse gstreamer0.10-pitfdll gstreamer0.10-plugins-bad gstreamer0.10-plugins-bad-multiverse" used="1">
+<tool title="安裝 GStreamer 的各種影音解碼外掛" command="scripts/gstreamer" used="1">
 GStreamer 是一個影音的程式庫，目前 Linux 上有不少多媒體軟體，需要依賴它才能運作
 但 Ubuntu 官方，礙於某些潛在的可能法律問題，預設拿掉了許多常用的影音解碼器，導致
 許多常見的影音格式無法被支援。選擇這個項目會幫你裝回這些常用的影音格式支援。
@@ -150,12 +150,12 @@ GStreamer 是一個影音的程式庫，目前 Linux 上有不少多媒體軟體
 
 <category title="光碟工具" image="media-optical">
 
-<tool title="安裝 K3B - Linux 下最強的燒錄軟體" command="apt-get -y --force-yes install k3b k3b-i18n libk3b2-*" used="1">
+<tool title="安裝 K3B - Linux 下最強的燒錄軟體" command="apt-get -y --force-yes install k3b k3b-i18n libk3b3-extracodecs" used="1">
 Linux 下最強大的圖形介面燒錄軟體，功能比起 Windows 下的 Nero，絲毫不遜色。
 不論是處理資料、影片、音樂光碟、光碟對拷，都難不倒它，可支援 CD 和 DVD。
 </tool>
 
-<tool title="安裝 K9Copy" command="apt-get -y --force-yes install k9copy" used="1">
+<tool title="安裝 K9Copy" command="scripts/k9copy" used="1">
 超好用的強大影音 DVD 拷貝工具，相當於 Windows 下的 DVDShrink
 可以把 9 GB 的 DVD 壓縮後燒錄進 4.7 GB 的空片，並保存原 DVD 選單
 經過壓縮的DVD，畫質比起原母片，只有非常細微的減損。
@@ -163,7 +163,7 @@ Linux 下最強大的圖形介面燒錄軟體，功能比起 Windows 下的 Nero
 可以說是目前 Linux 下最好的 DVD 備份方案。
 </tool>
 
-<tool title="安裝 AcidRip" command="apt-get -y --force-yes install acidrip" used="1">
+<tool title="安裝 AcidRip" command="scripts/acidrip" used="1">
 相當好用的 DVD Rip 製作工具，操作介面相當簡易，轉檔品質優良。
 可將 DVD 影片轉成 avi 檔，同時可保存字幕(以 *.sub 和 *.idx 的格式)。
 </tool>
@@ -211,7 +211,7 @@ Adobe 官方提供的 Linux 版 PDF 閱讀程式
 可能導致一些 Windows FAT32 分割區的檔名異常，勾選這個選項會視情況幫你修正。
 </tool>
 
-<tool title="安裝幾個好用的 Nautilus(檔案管理程式)外掛" command="apt-get -y --force-yes install nautilus-gksu nautilus-open-terminal nautilus-script-audio-convert nautilus-image-converter" used="1">
+<tool title="安裝幾個好用的 Nautilus(檔案管理程式)外掛" command="scripts/nautilus" used="1">
 nautilus-gksu：以系統管理員權限開啟目錄
 nautilus-open-terminal：在目前目錄下開啟終端機視窗
 nautilus-script-audio-convert：音樂轉檔外掛
@@ -250,7 +250,7 @@ MadEdit 堪稱臺灣自由軟體之光。 它是目前最強大好用的跨平�
 Regular expression 搜尋，多重檔案尋找/取代。介面友善美觀、功能強大，絕對值得一試！
 </tool>
 
-<tool title="安裝 Sun Java 環境 (含 Firefox 瀏覽器外掛)" command="env DEBIAN_FRONTEND='gnome' apt-get -y --force-yes install sun-java6-jre sun-java6-plugin" used="1">
+<tool title="安裝 Sun Java 環境 (含 Firefox 瀏覽器外掛)" command="DEBIAN_FRONTEND='gnome' apt-get -y --force-yes install sun-java6-jre sun-java6-plugin" used="1">
 Sun Java 6 虛擬機器執行環境，執行 Java 軟體或是網頁上的 Java 小程式需要。
 請注意： 安裝此項目，會在安裝過程中跳出 Sun 的授權合約，需要同意才能正確安裝。
 </tool>

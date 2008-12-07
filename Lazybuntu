@@ -1,7 +1,6 @@
 #!/bin/sh
 # Startup script of Lazybuntu
 # License: GNU GPL
-# Copyright (C) 2007 Houng Jen Yee (PCMan) <pcman.tw@gmail.com>
 
 # 避開 8.04 gksudo env_reset 的問題
 mkdir -p temp
@@ -15,8 +14,11 @@ DIR=`dirname $0`
 cd "$DIR"
 
 # Export distribution codename (gutsy, feisty, ...etc)
-export `cat /etc/*release|grep DISTRIB_CODENAME`
-echo 'export `cat /etc/*release|grep DISTRIB_CODENAME`' >> $ENV_EXPORT_SCRIPT
+echo "export DISTRIB_CODENAME=`lsb_release -cs`" >> "$ENV_EXPORT_SCRIPT"
+
+
+# Export dustribution ID (Debian or Ubuntu)
+echo "export DISTRIB_ID=`lsb_release -is`" >> "$ENV_EXPORT_SCRIPT"
 
 # check the path of desktop dir
 XDG_USER_DIRS=~/.config/user-dirs.dirs
