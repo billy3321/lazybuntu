@@ -15,7 +15,7 @@ scripts/download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu'
 ;;
 x86_64)
 
- . add-apt-sources
+ . scripts/add-apt-sources
  
  add_medibuntu
 # 將以下網址之內容執行於下

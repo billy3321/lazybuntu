@@ -52,7 +52,7 @@ x86_64)
 #若os為ubuntu 64-bit
 #echo "抱歉，目前Adobe Reader官方版本並不支援ubuntu 64bit"
 #使用medibuntu中的套件
-. add-apt-source
+. scripts/add-apt-source
 
 add_medibuntu
 
