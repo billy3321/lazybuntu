@@ -135,7 +135,7 @@ RealNetworks 公司的 RealPlayer 播放程式，官方有推出 Linux 版本，
 注意:目前Hinedo尚不支援AMD64硬體架構。若勾選此項可能仍不安裝。
 </tool>
 
-<tool title="安裝 GStreamer 的各種影音解碼外掛" command="apt-get -y --force-yes install gstreamer0.10-plugins-ugly gstreamer0.10-plugins-ugly-multiverse gstreamer0.10-pitfdll gstreamer0.10-plugins-bad gstreamer0.10-plugins-bad-multiverse" used="1">
+<tool title="安裝 GStreamer 的各種影音解碼外掛" command="scripts/gstreamer" used="1">
 GStreamer 是一個影音的程式庫，目前 Linux 上有不少多媒體軟體，需要依賴它才能運作
 但 Ubuntu 官方，礙於某些潛在的可能法律問題，預設拿掉了許多常用的影音解碼器，導致
 許多常見的影音格式無法被支援。選擇這個項目會幫你裝回這些常用的影音格式支援。
@@ -263,6 +263,8 @@ Regular expression 搜尋，多重檔案尋找/取代。介面友善美觀、功
 Sun Java 6 虛擬機器執行環境，執行 Java 軟體或是網頁上的 Java 小程式需要。
 請注意： 安裝此項目，會在安裝過程中跳出 Sun 的授權合約，需要同意才能正確安裝。
 </tool>
+
+</category>
 
 </lazy>
 
