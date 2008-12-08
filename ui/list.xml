@@ -128,7 +128,6 @@ Audacious 在正確設定下，能夠處理大部份的編碼問題，所以仍�
 <tool title="安裝 Real Player 11 播放程式 Linux 版本" command="scripts/realplay" used="1">
 RealNetworks 公司的 RealPlayer 播放程式，官方有推出 Linux 版本，
 可以播放網路上常見的 rm, rmvb 等格式，還有一些串流媒體。
-注意:目前Real Player尚不支援AMD64硬體架構。若勾選此項可能仍不安裝。
 </tool>
 <tool title="安裝 Hinedo 網路廣播收聽程式" command="scripts/hinedo" used="1">
 透過縮小在工作列的小圖示，叫出選單，輕鬆收聽 Hinet 提供的網路廣播。
