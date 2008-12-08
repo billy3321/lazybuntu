@@ -124,7 +124,7 @@ Linux 下有數不清的好用音樂播放軟體，但是對於原 Windows 使�
 Audacious 在正確設定下，能夠處理大部份的編碼問題，所以仍然是推薦使用。
 </tool>
 
-<tool title="安裝 Real Player 10 播放程式 Linux 版本" command="scripts/realplay" used="1">
+<tool title="安裝 Real Player 11 播放程式 Linux 版本" command="scripts/realplay" used="1">
 RealNetworks 公司的 RealPlayer 播放程式，官方有推出 Linux 版本，
 可以播放網路上常見的 rm, rmvb 等格式，還有一些串流媒體。
 注意:目前Real Player尚不支援AMD64硬體架構。若勾選此項可能仍不安裝。
@@ -264,6 +264,9 @@ Sun Java 6 虛擬機器執行環境，執行 Java 軟體或是網頁上的 Java 
 請注意： 安裝此項目，會在安裝過程中跳出 Sun 的授權合約，需要同意才能正確安裝。
 </tool>
 
+<tool title="安裝寶石方塊" command="apt-get -y --force-yes install gweled" used="0">
+寶石方塊(Gweled)是一款在Linux上相當受歡迎的小遊戲，藉由將同色寶石放在一起消去來獲得分數。
+</tool>
 </category>
 
 </lazy>
