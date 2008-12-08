@@ -9,68 +9,110 @@ import gtk, gobject, vte
 import os, sys
 import xml.sax
 
-VERSION='0.1.5'
+VERSION='0.1.7'
 
 # if the user choosed yes, return True; otherwise, return False
 def query_yes_no(msg, parent=None):
-    dlg=gtk.MessageDialog(parent, gtk.DIALOG_MODAL, gtk.MESSAGE_QUESTION, gtk.BUTTONS_YES_NO, msg)
-    ret=dlg.run()
-    dlg.destroy()
-    return ret==gtk.RESPONSE_YES
+    dlg = gtk.MessageDialog \
+            (parent, gtk.DIALOG_MODAL, \
+            gtk.MESSAGE_QUESTION, \
+            gtk.BUTTONS_YES_NO, msg)
 
+    ret = dlg.run ()
+    dlg.destroy ()
+    return ret == gtk.RESPONSE_YES
 
-def show_error(msg, title=None, parent=None):
-    dlg=gtk.MessageDialog(parent, gtk.DIALOG_MODAL, gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
+def show_error (msg, title=None, parent=None):
+    dlg = gtk.MessageDialog \
+            (parent, gtk.DIALOG_MODAL, \
+            gtk.MESSAGE_ERROR, gtk.BUTTONS_OK, msg)
+
     if title:
-        dlg.set_title(title)
-    dlg.run()
-    dlg.destroy()
+        dlg.set_title (title)
+
+    dlg.run ()
+    dlg.destroy ()
 
 
-def connect_test():    # Dirty trick used to test if the network connection is available
+def connect_test ():    # Dirty trick used to test if the network connection is available
     ''' test availibility of network connection '''
+    zenity_cmd = "zenity --progress --text='測試網路中' --pulsate --auto-close"
     websites=['http://www.google.com/', 'http://tw.archive.ubuntu.com/']
     for website in websites:
-        if os.system("wget --tries=2 --timeout=120 -O - %s >/dev/null 2>&1" % website) == 0:
+        if os.system ("wget --tries=2 --timeout=120 -O -" +
+                        "%s >/dev/null 2>&1 | %s" % (website, zenity_cmd)) == 0:
             return True
     return False
 
-def get_codename():
-    fin, fout = os.popen2("lsb_release -cs")
+def get_codename ():
+    fin, fout = os.popen2 ("lsb_release -cs")
     codename = fout.read().strip()
     return codename
 
-def ensure_network():
+def get_distro ():
+    fin, fout = os.popen2 ("lsb_release -cs")
+    codename = fout.read().strip()
+    fin, fout = os.popen2 ("lsb_release -is")
+    distribution = fout.read().strip()
+    return distribution, codename
+
+def ensure_network ():
     ''' test availibility of network connection '''
-    #if connect_test(): # network connection is available
-    #    return True
+    distro, codename = get_distro ()
 
-    # config network settings
-    codename = get_codename()
+    if connect_test () == True:
+        return True;
+    elif distro == 'Debian':
+        return False;
 
-    dlg = gtk.MessageDialog( None, gtk.DIALOG_MODAL,  gtk.MESSAGE_QUESTION, gtk.BUTTONS_OK_CANCEL)
-    dlg.set_markup('<b>Lazybuntu 需要網路才能執行，請選擇你使用的網路種類：</b>')
-    adsl_btn=gtk.RadioButton( None, '使用需要使用者名稱與密碼的寬頻連線來連線\n( 需要帳號密碼的 ADSL 請選擇此項，例如浮動 IP 的 Hinet ADSL )' )
-    if codename != "hardy":
-        dlg.vbox.pack_start(adsl_btn, False, True, 2)
-    other_btn=gtk.RadioButton(adsl_btn, '透過其他方式 - DHCP 自動取得、固定 IP、或是數據機電話撥接...\n( 固定 IP 的 ADSL，視服務業者，有可能需要使用此項，例如 Hinet, So-net)')
-    dlg.vbox.pack_start(other_btn, False, True, 2)
-    no_btn=gtk.RadioButton(adsl_btn, '我已連接到網際網路，不需要額外設定\n( 使用無線網路，請點選螢幕右上角工作列中的無線網路圖示，即可連線 )')
-    no_btn.set_active(True)
-    dlg.vbox.pack_start(no_btn, False, True, 2)
-    dlg.vbox.show_all()
+    dlg = gtk.MessageDialog \
+        (None, gtk.DIALOG_MODAL,  \
+        gtk.MESSAGE_QUESTION, \
+        gtk.BUTTONS_OK_CANCEL)
 
-    ret = dlg.run()
-    use_adsl=adsl_btn.get_active()
-    use_other=other_btn.get_active()
-    dlg.destroy()
+    dlg.set_markup ('<b>Lazyscript 需要網路才能執行，' +
+                    '請選擇你使用的網路種類：</b>')
+
+    adsl_btn=gtk.RadioButton (None, 
+        '使用需要使用者名稱與密碼的寬頻連線來連線\n' +
+        ' (需要帳號密碼的 ADSL 請選擇此項，' + 
+        '例如浮動 IP 的 Hinet ADSL)')
+
+    if codename != "hardy" and codename != 'intrepid':
+        dlg.vbox.pack_start (adsl_btn, False, True, 2)
+
+    other_btn = \
+        gtk.RadioButton (adsl_btn, 
+            '透過其他方式' +
+            '- DHCP 自動取得、固定 IP、' +
+            '或是數據機電話撥接...\n' +
+            '( 固定 IP 的 ADSL，視服務業者' +
+            '，有可能需要使用此項，例如 Hinet, So-net)')
+
+    dlg.vbox.pack_start (other_btn, False, True, 2)
+
+    no_btn = gtk.RadioButton (adsl_btn, 
+        '我已連接到網際網路，' +
+        '不需要額外設定\n ' +
+        '(使用無線網路，' +
+        '請點選螢幕右上角工作列中' + 
+        '的無線網路圖示，即可連線)')
+
+    no_btn.set_active (True)
+    dlg.vbox.pack_start (no_btn, False, True, 2)
+    dlg.vbox.show_all ()
+
+    ret = dlg.run ()
+    use_adsl = adsl_btn.get_active ()
+    use_other = other_btn.get_active ()
+    dlg.destroy ()
 
     if ret != gtk.RESPONSE_OK:
         return False
 
     # update GUI
-    while gtk.events_pending():
-       gtk.main_iteration()
+    while gtk.events_pending ():
+       gtk.main_iteration ()
 
     if use_adsl:
         os.system('scripts/pppoeconf')
@@ -83,64 +125,66 @@ def ensure_network():
 
 def ensure_apt_sources():
     msg ="""
-使用 Lazybuntu，需要正確設定系統上的 APT 軟體套件來源，
+使用 Lazyscript，需要正確設定系統上的 APT 軟體套件來源，
 才有辦法正確從網路上安裝各種軟體。
-為了減低問題的複雜度，Lazybuntu 會用正確可用的設定值
-替換你系統上原本的 /etc/apt/sources.list 設定檔。
-(原本的設定會被備份到 /etc/apt/sources.list.bak )\n
+Lazyscript 將會嘗試加入你的國家/地區的區域性伺服器。\n
 你是否願意讓 Lazybuntu 修改你的套件庫設定？
 """
-    if query_yes_no( msg ):
-        os.system( 'scripts/replace-apt-sources' );
+    if query_yes_no (msg):
+        os.system ('scripts/add_official_repos.py');
     else:
-        show_error( 'Lazybuntu 不會變更你的設定，請自行妥善設定你的套件庫。\n\n提示：請開啟 main, universe, multiverse, 及 restricted' )
-        # update GUI
-        while gtk.events_pending():
-           gtk.main_iteration()
-        os.system( 'software-properties-gtk' );
+        show_error ('Lazybuntu 不會變更你的設定，' +
+                    '請自行妥善設定你的套件庫。\n\n' +
+                    '提示：請開啟 main, universe, ' +
+                    'multiverse, 及 restricted')
 
+        # update GUI
+        while gtk.events_pending ():
+           gtk.main_iteration ()
+        os.system ('software-properties-gtk');
 
 class Tool:
-    def __init__( self, title, command, used=True):
-        self.title=title
-        self.desc=''
-        self.command=command
-        self.used=used
-
+    def __init__ (self, title, command, used=True):
+        self.title = title
+        self.desc = ''
+        self.command = command
+        self.used = used
 
 class ToolPage:
+    def __init__ (self):
+        self.tools = []
 
-    def __init__(self):
-        self.tools=[]
-
-    def get_widget(self):
+    def get_widget (self):
         # columns: used or not, description, tool object
-        self.list=gtk.ListStore(gobject.TYPE_BOOLEAN, gobject.TYPE_STRING, gobject.TYPE_PYOBJECT)
+        self.list = gtk.ListStore \
+                    (gobject.TYPE_BOOLEAN, gobject.TYPE_STRING, \
+                    gobject.TYPE_PYOBJECT)
+
         list = self.list
-        view=gtk.TreeView()
-        view.set_rules_hint(True)
+        view = gtk.TreeView ()
+        view.set_rules_hint (True)
         view.get_selection().set_mode(gtk.SELECTION_NONE)
 
-        render=gtk.CellRendererToggle()
-        render.set_property('activatable', True)
-        render.connect('toggled', self.on_toggled, list)
-        col=gtk.TreeViewColumn('可選用的項目')
-        col.pack_start(render)
-        col.set_attributes( render, active=0 )
+        render = gtk.CellRendererToggle ()
+        render.set_property ('activatable', True)
+        render.connect ('toggled', self.on_toggled, list)
+        col = gtk.TreeViewColumn ('可選用的項目')
+        col.pack_start (render)
+        col.set_attributes (render, active=0)
 
-        render=gtk.CellRendererText()
-        col.pack_start(render)
-        col.set_attributes(render, markup=1)
-        view.append_column(col)
+        render=gtk.CellRendererText ()
+        col.pack_start (render)
+        col.set_attributes (render, markup=1)
+        view.append_column (col)
 
         for tool in self.tools:
-            list.append( (tool.used, ("<b>%s</b>：\n%s" % (tool.title, tool.desc) ), tool) )
+            list.append ((tool.used, ("<b>%s</b>：\n%s" % (tool.title, tool.desc)), tool))
 
-        view.set_model(list)
-        view.show()
+        view.set_model (list)
+        view.show ()
         return view
 
-    def on_toggled(self, render, path, list):
+    def on_toggled (self, render, path, list):
         # print "toggled"
         it=list.get_iter_from_string(path)
         used, tool=list.get(it, 0, 2)
@@ -159,7 +203,17 @@ class WelcomePage:
     def get_widget(self):
         view=gtk.Viewport()
         label=gtk.Label()
-        label.set_markup('<b><big>Lazybuntu - Ubuntu 懶人包，Linux 新手的好朋友</big></b>\n\n幫你解決安裝後煩人的小設定，安裝一些好用軟體，\n省去在茫茫網海中搜尋的時間。\n\n請從左邊的清單中，點選各個分類，選擇你要套用的項目。\n\n\nCopyright (C) 2007, Design and developed by PCMan and Yuren Ju\nPowered by Ubuntu Taiwan Community\n\nProject Lazybuntu - <span color="blue">http://lazybuntu.openfoundry.org/</span>')
+        label.set_markup(
+            '<b><big>Lazybuntu - Ubuntu 懶人包' +
+            '，Linux 新手的好朋友</big></b>\n\n' +
+            '幫你解決安裝後煩人的小設定，安裝一些好用軟體，\n' +
+            '省去在茫茫網海中搜尋的時間。\n\n' +
+            '請從左邊的清單中，點選各個分類，選擇你要套用的項目。\n\n\n' +
+            'Copyright (C) 2007, Design and developed by PCMan and Yuren Ju\n' +
+            'Powered by Ubuntu Taiwan Community\n\n' +
+            'Project Lazybuntu - ' +
+            '<span color="blue">http://lazybuntu.openfoundry.org/</span>')
+
         view.add(label)
         view.show_all()
         return view
@@ -468,14 +522,6 @@ def release_lock():
 '''
 
 if __name__ == '__main__':
-
-#    if '--help' in sys.argv:
-#        print """
-#"""
-#        exit(0)
-
-#    acquire_lock()
-
     # check for availibility of network connection
     if not ensure_network():
         show_error('沒有可用的網路連線，Lazybuntu 無法執行。', '錯誤')

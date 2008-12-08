@@ -12,7 +12,7 @@ TOP_DIR=`pwd`
 TMP_DIR='temp/ie6'
 
 # install cabextract and tool used to extract ie icon
-apt-get -y --force-yes install wine icoutils cabextract
+apt-get -y --force-yes install wine icoutils cabextract unzip
 mkdir -p "$TMP_DIR"
 
 cd "$TMP_DIR"

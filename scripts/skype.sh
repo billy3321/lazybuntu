@@ -15,9 +15,8 @@ scripts/download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu'
 ;;
 x86_64)
 
- . scripts/add-apt-sources
- 
- add_medibuntu
+scripts/multimedia-repos
+
 # 將以下網址之內容執行於下
 # http://ubuntuforums.org/showthread.php?t=432295
  case "$DISTRIB_CODENAME" in
