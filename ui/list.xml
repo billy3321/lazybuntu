@@ -66,6 +66,7 @@ Internet Explorer 可以在 Linux 安裝並上執行。
 
 <tool title="安裝 Skype 網路電話 2.0" command="scripts/skype.sh" used="1" >
 Skype 網路電話官方發行的 Linux 版本，這是 2.0 正式版，具有許多令人興奮的新功能。
+注意：AMD64版本在安裝後仍需手動設定聲音輸出才可正常使用。
 </tool>
 
 <tool title="安裝 SwiftFox - 非官方最佳化版的 Firefox" command="scripts/swiftfox" used="1">
@@ -191,7 +192,7 @@ Linux 下用來掛載光碟映像檔的好用工具。
 
 <tool title="安裝 Adobe Reader 8" command="scripts/adobe-reader" used="1">
 Adobe 官方提供的 Linux 版 PDF 閱讀程式
-注意:目前Adobe Reader尚不支援AMD64硬體架構。若勾選此項可能仍不安裝。
+注意:AMD64硬體架構將安裝medibuntu之Adobe Reader而非官方發行版本。。
 </tool>
 
 <tool title="安裝 StarDict 星際譯王及其字典檔" command="scripts/stardict" used="0">
