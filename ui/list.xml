@@ -264,10 +264,5 @@ Sun Java 6 虛擬機器執行環境，執行 Java 軟體或是網頁上的 Java 
 請注意： 安裝此項目，會在安裝過程中跳出 Sun 的授權合約，需要同意才能正確安裝。
 </tool>
 
-<tool title="安裝寶石方塊" command="apt-get -y --force-yes install gweled" used="0">
-寶石方塊(Gweled)是一款在Linux上相當受歡迎的小遊戲，藉由將同色寶石放在一起消去來獲得分數。
-</tool>
-</category>
-
 </lazy>
 
