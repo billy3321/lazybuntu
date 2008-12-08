@@ -191,7 +191,7 @@ Linux 下用來掛載光碟映像檔的好用工具。
 
 <tool title="安裝 Adobe Reader 8" command="scripts/adobe-reader" used="1">
 Adobe 官方提供的 Linux 版 PDF 閱讀程式
-注意:AMD64硬體架構將安裝medibuntu之Adobe Reader而非官方發行版本。。
+注意:AMD64硬體架構將安裝medibuntu之Adobe Reader而非官方發行版本。
 </tool>
 
 <tool title="安裝 StarDict 星際譯王及其字典檔" command="scripts/stardict" used="0">

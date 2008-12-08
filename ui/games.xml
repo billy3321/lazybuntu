@@ -60,8 +60,13 @@ PCSX-df 是一個進階的 PlayStation (PSX) 模擬器。
 MS-DOS 模擬器，讓你在 Linux 下玩古董級的 DOS 遊戲。
 </tool>
 
+</category>
+
+<category title="有趣的小遊戲" image="">
+
 <tool title="安裝寶石方塊" command="apt-get -y --force-yes install gweled" used="0">
-寶石方塊(Gweled)是一款在Linux上相當受歡迎的小遊戲，藉由將同色寶石放在一起消去來獲得分數。
+寶石方塊(Gweled)是一款在Linux上相當受歡迎的小遊戲，
+藉由將同色寶石放在一起消去來獲得分數。
 </tool>
 
 </category>
