@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ "$DISTRIB_ID" == "Debian" ]; then
     uri="http://ftp.tw.debian.org/debian-multimedia/"
