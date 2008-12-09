@@ -4,7 +4,7 @@ if [ "$DISTRIB_ID" == "Debian" ]; then
     uri="http://ftp.tw.debian.org/debian-multimedia/"
     comps="main"
     extra_packages=""
-elif [ "$DISTRIB_CODENAME" == "Ubuntu" ]; then
+elif [ "$DISTRIB_ID" == "Ubuntu" ]; then
     uri="http://packages.medibuntu.org/"
     comps="free non-free"
     extra_packages="non-free-codecs"
