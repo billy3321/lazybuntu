@@ -453,6 +453,7 @@ class MainWin:
         f=open(script_name, 'w')
 
         # FIXME: working network should be available before this line
+        f.write ("#!/bin/bash\n\n")
         f.write( "apt-get update\n" )    # This is required
         f.write( ". temp/env-export.sh\n" )    # This is required
 
