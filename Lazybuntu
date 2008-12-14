@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Startup script of Lazybuntu
 # License: GNU GPL
 
@@ -16,6 +16,9 @@ cd "$DIR"
 # Export distribution codename (gutsy, feisty, ...etc)
 echo "export DISTRIB_CODENAME=`lsb_release -cs`" >> "$ENV_EXPORT_SCRIPT"
 
+# Export architecture as ARCH_NAME (i686,x86_64, ...etc)
+export ARCH_NAME="`uname -a | cut -d " " -f 12`"
+echo "export ARCH_NAME=\"`uname -a | cut -d " " -f 12`\"" >> $ENV_EXPORT_SCRIPT
 
 # Export dustribution ID (Debian or Ubuntu)
 echo "export DISTRIB_ID=`lsb_release -is`" >> "$ENV_EXPORT_SCRIPT"

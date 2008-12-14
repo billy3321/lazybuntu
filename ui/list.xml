@@ -9,7 +9,7 @@ Ubuntu 安裝光碟因為容量的關係，預設沒有包含中文介面。
 </tool>
 
 <tool title="安裝/設定 中文輸入法" command="scripts/cin.py" used="1">
-讓你安裝你想要的中文輸入法，有 scim, gcin, 或 oxim 可選擇。
+讓你安裝你想要的中文輸入法，有 scim, gcin 可選擇。
 </tool>
 
 <tool title="安裝 cwTTF 高品質中文字型" command="scripts/cwttf" used="1">
@@ -64,8 +64,9 @@ Internet Explorer 可以在 Linux 安裝並上執行。
 &lt;span color="red" &gt;請注意：根據微軟的授權合約，你需要有正版 Windows 授權才能使用 IE&lt;/span&gt;
 </tool>
 
-<tool title="安裝 Skype 網路電話 2.0" command="scripts/download-install skype 'http://www.skype.com/go/getskype-linux-ubuntu'" used="1" >
+<tool title="安裝 Skype 網路電話 2.0" command="scripts/skype.sh" used="1" >
 Skype 網路電話官方發行的 Linux 版本，這是 2.0 正式版，具有許多令人興奮的新功能。
+注意：AMD64版本在安裝後仍需手動設定聲音輸出才可正常使用。
 </tool>
 
 <tool title="安裝 SwiftFox - 非官方最佳化版的 Firefox" command="scripts/swiftfox" used="1">
@@ -124,13 +125,14 @@ Linux 下有數不清的好用音樂播放軟體，但是對於原 Windows 使�
 Audacious 在正確設定下，能夠處理大部份的編碼問題，所以仍然是推薦使用。
 </tool>
 
-<tool title="安裝 Real Player 10 播放程式 Linux 版本" command="scripts/realplay" used="1">
+<tool title="安裝 Real Player 11 播放程式 Linux 版本" command="scripts/realplay" used="1">
 RealNetworks 公司的 RealPlayer 播放程式，官方有推出 Linux 版本，
 可以播放網路上常見的 rm, rmvb 等格式，還有一些串流媒體。
 </tool>
 <tool title="安裝 Hinedo 網路廣播收聽程式" command="scripts/hinedo" used="1">
 透過縮小在工作列的小圖示，叫出選單，輕鬆收聽 Hinet 提供的網路廣播。
 不用看大量的網路廣告，更不用開龐大的網路瀏覽器，就能直接收聽。
+注意:目前Hinedo尚不支援AMD64硬體架構。若勾選此項可能仍不安裝。
 </tool>
 
 <tool title="安裝 GStreamer 的各種影音解碼外掛" command="scripts/gstreamer" used="1">
@@ -189,6 +191,7 @@ Linux 下用來掛載光碟映像檔的好用工具。
 
 <tool title="安裝 Adobe Reader 8" command="scripts/adobe-reader" used="1">
 Adobe 官方提供的 Linux 版 PDF 閱讀程式
+注意:AMD64硬體架構將安裝medibuntu之Adobe Reader而非官方發行版本。
 </tool>
 
 <tool title="安裝 StarDict 星際譯王及其字典檔" command="scripts/stardict" used="0">
@@ -239,12 +242,18 @@ Ubuntu 預設的圖示還不難看，不過，nuoveXT 更好看。這個佈景�
 長久以來，一直蟬聯 Gnome-Look 網站最高使用者評價。
 </tool>
 
+<tool title="安裝Ubuntu Tweak校調工具" command="scripts/ubuntu-tweak.sh" used="1">
+Ubuntu Tweak是一款快速好用的挍調工具，若您在往後的使用中需要
+特定軟體或是調整您的作業系統，Ubuntu Tweak可以提供您一個快速
+方便的設定界面。
+</tool>
+
 </category>
 
 
 <category title="其他未分類" image="applications-other">
 
-<tool title="安裝 MadEdit - 支援 16 進位編輯、中文轉碼的超強國產編輯器" command="scripts/download-install madedit http://nchc.dl.sourceforge.net/sourceforge/madedit/madedit_0.2.8-1_i386.deb" used="1">
+<tool title="安裝 MadEdit - 支援 16 進位編輯、中文轉碼的超強國產編輯器" command="scripts/madedit.sh" used="1">
 MadEdit 堪稱臺灣自由軟體之光。 它是目前最強大好用的跨平台文字編輯器之一
 由台灣人所開發。支援 16 進位編輯，語法高亮度彩色、文字編碼自動偵測、完整中文支援、
 Regular expression 搜尋，多重檔案尋找/取代。介面友善美觀、功能強大，絕對值得一試！

@@ -42,8 +42,9 @@ Linux 下超好玩的全 3D 即時戰略遊戲，畫面相當華麗，音效也�
 
 <category title="模擬器" image="">
 
-<tool title="XMame" command="apt-get -y --force-yes install xmame-x" used="0">
+<tool title="KXMame" command="apt-get -y --force-yes install kxmame" used="0">
 Windows 下知名的模擬器軟體 Mame 的 Linux Clone。
+KXMame是較為方便使用的mame前端設定。
 可以模擬執行大型機台的遊戲，例如 KOF (遊戲 ROM 檔需自備)
 </tool>
 
@@ -57,6 +58,15 @@ PCSX-df 是一個進階的 PlayStation (PSX) 模擬器。
 
 <tool title="Dosbox" command="apt-get -y --force-yes install dosbox" used="0">
 MS-DOS 模擬器，讓你在 Linux 下玩古董級的 DOS 遊戲。
+</tool>
+
+</category>
+
+<category title="有趣的小遊戲" image="">
+
+<tool title="安裝寶石方塊" command="apt-get -y --force-yes install gweled" used="0">
+寶石方塊(Gweled)是一款在Linux上相當受歡迎的小遊戲，
+藉由將同色寶石放在一起消去來獲得分數。
 </tool>
 
 </category>
