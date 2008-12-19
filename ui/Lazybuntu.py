@@ -427,7 +427,7 @@ class MainWin:
         dlg.set_website('http://lazybuntu.openfoundry.org/')
         if self.icon:
             dlg.set_logo(self.icon)
-        dlg.set_authors(['洪任諭 (PCMan) <pcman.tw@gmail.com>', '朱昱任 (Yuren Ju) <yurenju@gmail.com>'])
+        dlg.set_authors(['洪任諭 (PCMan) <pcman.tw@gmail.com>', '朱昱任 (Yuren Ju) <yurenju@gmail.com>','林哲瑋 (billy3321,雨蒼) <billy3321@gmail.com>'])
         dlg.set_copyright('Copyright (C) 2007 by Lazybuntu project')
         dlg.set_license('GNU General Public License')
         dlg.set_comments('台灣社群專用 Ubuntu 懶人包')
