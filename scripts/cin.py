@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2007 朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>
 # Copyright (C) 2007 洪任諭(PCMan) <pcman.tw -AT- gmail.com>
-# Copyright (C) 2008 林哲瑋 Zhe-Wei Lin (bill3321,雨蒼) <bill3321 -AT- gmail.com>
+# Copyright (C) 2008 林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>
 # Last Midified : 19 Dec 2008
 # Install and config input method for one or more users.
 # Released under GNU General Public License
@@ -35,7 +35,7 @@ def sel_users(selected_cin):
         (None, gtk.DIALOG_MODAL,  \
         gtk.MESSAGE_QUESTION, \
         gtk.BUTTONS_OK)
-    dlg.set_markup ('<b>請選擇您的輸入法設定要套用的使用者：</b>')
+    dlg.set_markup ('<b>請選擇您的輸入法設定要套用的使用者細項：</b>')
     for user_name in USERS_LIST:
      user_name_box= user_name + "_box"
      dlg_bts[user_name_box]=gtk.CheckButton(user_name)
@@ -58,7 +58,7 @@ def user_scope (selected_cin):
         (None, gtk.DIALOG_MODAL,  \
         gtk.MESSAGE_QUESTION, \
         gtk.BUTTONS_OK)
-    dlg.set_markup ('<b>請選擇您的輸入法設定要套用的使用者：</b>')
+    dlg.set_markup ('<b>請選擇您的輸入法設定要套用的使用者範圍：</b>')
  
     currectuser_btn=gtk.RadioButton (None, '只套用到我自己')
     dlg.vbox.pack_start (currectuser_btn, False, True, 2)
