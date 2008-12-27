@@ -147,6 +147,9 @@ GStreamer 是一個影音的程式庫，目前 Linux 上有不少多媒體軟體
 (若有使用者知道更好的選擇，請提議給 Lazybuntu 開發者)
 </tool>
 
+<tool title="安裝DPG Converter影像轉檔程式" command="scripts/dpgconv.sh" used="0">
+DPG Converter影像轉檔程式可將各種影像格式轉換為NDL可播放的DPG影像格式。
+</tool>
 
 </category>
 
