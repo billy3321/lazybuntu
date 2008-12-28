@@ -9,7 +9,6 @@
 # Remove older version realplayer
 
 case "$ARCH_NAME" in
-
 i686)
 echo '移除系統上原本的 Real Player 套件...'
 apt-get --force-yes -y remove --purge realplay
@@ -22,6 +21,7 @@ x86_64)
 # http://www.real.com/realcom/R?href=http://forms.real.com/real/player/download.html?f=unix/RealPlayer11GOLD.bin
 echo '移除系統上原本的 Real Player 套件...'
 apt-get --force-yes -y remove --purge realplay
+apt-get --force-yes -y install lib32asound2 ia32-libs util-Linux build-essential Linux-headers-$(uname -r)
 
 mkdir -p temp/realplay
 TOP_DIR=`pwd`
@@ -30,7 +30,8 @@ echo '下載並安裝 Real Player 11...'
 wget 'http://forms.real.com/real/player/download.html?f=unix/RealPlayer11GOLD.bin'
 chmod a+x RealPlayer11GOLD.bin
 echo -e "\n\n\n" > real_echo
-sudo ./RealPlayer11GOLD.bin < real_echo
+echo `pwd`
+`pwd`/RealPlayer11GOLD.bin < real_echo
 
 cd "$TOP_DIR"
 ;;
