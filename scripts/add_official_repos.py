@@ -36,6 +36,10 @@ def main ():
         print "your distribution is remix release!"
         return -1
 
+    has_medibuntu_source = 0
+    has_ubuntu_tweak_source = 0
+    has_swiftfox_source = 0
+    has_winehq_source = 0
     for source in sourceslist:
      if source.disabled == False:
       if source.uri == "http://packages.medibuntu.org/":
