@@ -265,7 +265,7 @@ Regular expression 搜尋，多重檔案尋找/取代。介面友善美觀、功
 
 <tool title="安裝 Sun Java 環境 (含 Firefox 瀏覽器外掛)" command="DEBIAN_FRONTEND='gnome' apt-get -y --force-yes install sun-java6-jre sun-java6-plugin" used="1">
 Sun Java 6 虛擬機器執行環境，執行 Java 軟體或是網頁上的 Java 小程式需要。
-請注意： 安裝此項目，會在安裝過程中跳出 Sun 的授權合約，需要同意才能正確安裝。
+&lt;span color="red"&gt;請注意： 安裝此項目，會在安裝過程中跳出 Sun 的授權合約，需要同意才能正確安裝。&lt;/span&gt;
 </tool>
 
 </category>
