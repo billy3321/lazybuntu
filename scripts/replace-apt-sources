@@ -18,7 +18,7 @@ mv /etc/apt/sources.list /etc/apt/sources.list.bak
 HAS_MEDIBUNTU_SOURCE=`grep 'deb http://packages.medibuntu.org/' /etc/apt/sources.list.bak`
 HAS_UBUNTU_TWEAK_SOURCE=`grep 'deb http://ppa.launchpad.net/tualatrix/ubuntu' /etc/apt/sources.list.bak`
 HAS_SWIFTFOX_SOURCE=`grep 'deb http://getswiftfox.com/builds/debian' /etc/apt/sources.list.bak`
-HAS_WINEHQ=`grep 'deb http://wine.budgetdedicated.com/apt' /etc/apt/sources.list.bak`
+HAS_WINEHQ_SOURCE=`grep 'deb http://wine.budgetdedicated.com/apt' /etc/apt/sources.list.bak`
 
 # replace apt sources with our own
 cat > '/etc/apt/sources.list' << EOF
@@ -49,7 +49,7 @@ if [ -n "$HAS_SWIFTFOX_SOURCE" ]; then
   echo -e "\n#the source of swiftfox \ndeb http://getswiftfox.com/builds/debian unstable non-free" | sudo tee -a /etc/apt/sources.list
 fi
 
-if [ -n "$HAS_WINEHQ" ]; then
+if [ -n "$HAS_WINEHQ_SOURCE" ]; then
   echo -e "#the source of WineHQ Apt \ndeb http://wine.budgetdedicated.com/apt $DISTRIB_CODENAME main" | sudo tee -a /etc/apt/sources.list
 fi
 

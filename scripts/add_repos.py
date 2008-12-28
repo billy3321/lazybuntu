@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
+# Copyright (C) 2007 朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>
+# Add source into source.list through arguments.
+# Released under GNU General Public License
 
 import aptsources
 from aptsources.sourceslist import SourcesList

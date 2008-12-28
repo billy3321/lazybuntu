@@ -1,4 +1,8 @@
 #!/bin/bash
+# Copyright (C) 2007 朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>
+# Add Medibuntu source through scripts/add_repos.py
+# Released under GNU General Public License
+
 
 if [ "$DISTRIB_ID" == "Debian" ]; then
     uri="http://ftp.tw.debian.org/debian-multimedia/"
