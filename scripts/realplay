@@ -28,6 +28,7 @@ TOP_DIR=`pwd`
 cd temp/realplay
 echo '下載並安裝 Real Player 11...'
 wget 'http://forms.real.com/real/player/download.html?f=unix/RealPlayer11GOLD.bin'
+chmod a+x RealPlayer11GOLD.bin
 echo -e "\n\n\n" > real_echo
 sudo ./RealPlayer11GOLD.bin < real_echo
 
