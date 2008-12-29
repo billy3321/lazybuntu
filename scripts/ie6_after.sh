@@ -3,10 +3,10 @@
 # Copyright (C) 2008 朱昱任 (Yuren Ju) <yurenju -AT- gmail.com>
 # Copyright (C) 2008 林哲瑋 Zhe-Wei Lin (billy3321,雨蒼) <bill3321 -AT- gmail.com>
 # Config desktop icon and some setting after ie6 installation.
-# Last Modified: 27 Dec 2008
+# Last Modified: 29 Dec 2008
 
 
-CORRECT_DESKTOP_DIR="/home/${1}/Desktop"
+CORRECT_DESKTOP_DIR="/home/${1}/桌面"
 CORRECT_HOME="/home/${1}"
 CORRECT_USER="$1"
 
@@ -19,13 +19,17 @@ if [ ! -s /usr/share/pixmaps/msie6.png ];then
  icotool -x --icon --width=48 --height=48  --bit-depth=32 --output=. *.ico
  mv "iexplore.exe_14_32528_1028_7_48x48x32.png" "/usr/share/pixmaps/msie6.png"
 fi
+# check if ~/bin/ie6 is exists.
+if [ ! -L ${CORRECT_HOME}/bin/ie6 ];then
+ ln -s ${CORRECT_HOME}/.ies4linux/bin/ie6 ${CORRECT_HOME}/bin/ie6
+fi
 # move the generated icon to system icon dir  
 if [ ! -s "/usr/share/applications/msie6.desktop" ];then
 cat > "/usr/share/applications/msie6.desktop" << EOF
 [Desktop Entry]
 Version=1.0
 Icon=/usr/share/pixmaps/msie6.png
-Exec=$CORRECT_HOME/.ies4linux/bin/ie6
+Exec=ie6
 Name=Internet Explorer 6.0
 GenericName=Web Browser
 GenericName[zh_TW]=網路瀏覽器

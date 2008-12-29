@@ -14,7 +14,7 @@ elif [ "$DISTRIB_ID" == "Ubuntu" ]; then
     extra_packages="non-free-codecs"
 fi
 
-scripts/add_repos.py "$uri" "$DISTRIB_CODENAME" "$comps" "多媒體套件庫 (Lazyscript 新增)"
+scripts/add_repos.py "$uri" "$DISTRIB_CODENAME" "$comps" "多媒體套件庫 (Lazybuntu 新增)"
 
 apt-get update
 

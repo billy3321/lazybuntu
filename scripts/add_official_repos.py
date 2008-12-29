@@ -68,7 +68,7 @@ def main ():
     if has_medibuntu_source:
        medibuntu_uri = "http://packages.medibuntu.org/"
        medibuntu_comps = ["free non-free"]
-       distro.add_source (uri=medibuntu_uri, comps=medibuntu_comps, comment="Medibuntu Install Source")
+       distro.add_source (uri=medibuntu_uri, comps=medibuntu_comps, comment="Medibuntu Install Source (Lazybuntu 新增)")
     if has_ubuntu_tweak_source:
        ubuntu_tweak_uri = "http://ppa.launchpad.net/tualatrix/ubuntu"
        ubuntu_tweak_comps = ["main"]
@@ -76,17 +76,17 @@ def main ():
           ubuntu_tweak_dist = distro.codename
        else:
           ubuntu_tweak_dist = 'hardy'
-       distro.add_source (uri=ubuntu_tweak_uri, dist=ubuntu_tweak_dist, comps=ubuntu_tweak_comps, comment="Ubuntu Tweak Install Source")
-       distro.add_source (type="deb-src", uri=ubuntu_tweak_uri, dist=ubuntu_tweak_dist, comps=ubuntu_tweak_comps, comment="Ubuntu Tweak Install Source")
+       distro.add_source (uri=ubuntu_tweak_uri, dist=ubuntu_tweak_dist, comps=ubuntu_tweak_comps, comment="Ubuntu Tweak Install Source (Lazybuntu 新增)")
+       distro.add_source (type="deb-src", uri=ubuntu_tweak_uri, dist=ubuntu_tweak_dist, comps=ubuntu_tweak_comps, comment="Ubuntu Tweak Install Source (Lazybuntu 新增)")
     if has_swiftfox_source:
        swiftfox_uri = "http://getswiftfox.com/builds/debian"
        swiftfox_comps = ["non-free"]
        swiftfox_dist = "unstable"
-       distro.add_source (uri=swiftfox_uri, dist=swiftfox_dist, comps=swiftfox_comps, comment="Swiftfox Install Source")
+       distro.add_source (uri=swiftfox_uri, dist=swiftfox_dist, comps=swiftfox_comps, comment="Swiftfox Install Source (Lazybuntu 新增)")
     if has_winehq_source:
        winehq_uri = "http://wine.budgetdedicated.com/apt"
        winehq_comps = ["main"]
-       distro.add_source (uri=winehq_uri, comps=winehq_comps, comment="WineHQ Install Source")
+       distro.add_source (uri=winehq_uri, comps=winehq_comps, comment="WineHQ Install Source (Lazybuntu 新增)")
 
 
     sourceslist.backup ()

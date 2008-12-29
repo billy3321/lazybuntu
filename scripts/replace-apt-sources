@@ -34,23 +34,23 @@ EOF
 
 # 重新將medibuntu，ubuntu tweak或swiftfox之安裝來源加入
 if [ -n "$HAS_MEDIBUNTU_SOURCE" ]; then
-    echo -e "#the source of Medibuntu \ndeb http://packages.medibuntu.org/ $DISTRIB_CODENAME free non-free" | sudo tee -a /etc/apt/sources.list
+    echo -e "#the source of Medibuntu (Lazybuntu 新增)\ndeb http://packages.medibuntu.org/ $DISTRIB_CODENAME free non-free" | sudo tee -a /etc/apt/sources.list
 fi
 
 if [ -n "$HAS_UBUNTU_TWEAK_SOURCE" ]; then
     if [ "$DISTRIB_CODENAME" = 'intrepid' ];then
-      echo -e "\n#the source of Ubuntu Tweak \ndeb http://ppa.launchpad.net/tualatrix/ubuntu intrepid main \ndeb-src http://ppa.launchpad.net/tualatrix/ubuntu intrepid main" | sudo tee -a /etc/apt/sources.list
+      echo -e "\n#the source of Ubuntu Tweak (Lazybuntu 新增)\ndeb http://ppa.launchpad.net/tualatrix/ubuntu intrepid main \ndeb-src http://ppa.launchpad.net/tualatrix/ubuntu intrepid main" | sudo tee -a /etc/apt/sources.list
     else
-      echo -e "\n#the source of Ubuntu Tweak \ndeb http://ppa.launchpad.net/tualatrix/ubuntu hardy main \ndeb-src http://ppa.launchpad.net/tualatrix/ubuntu hardy main" | sudo tee -a /etc/apt/sources.list
+      echo -e "\n#the source of Ubuntu Tweak (Lazybuntu 新增)\ndeb http://ppa.launchpad.net/tualatrix/ubuntu hardy main \ndeb-src http://ppa.launchpad.net/tualatrix/ubuntu hardy main" | sudo tee -a /etc/apt/sources.list
     fi
 fi
 
 if [ -n "$HAS_SWIFTFOX_SOURCE" ]; then
-  echo -e "\n#the source of swiftfox \ndeb http://getswiftfox.com/builds/debian unstable non-free" | sudo tee -a /etc/apt/sources.list
+  echo -e "\n#the source of swiftfox (Lazybuntu 新增)\ndeb http://getswiftfox.com/builds/debian unstable non-free" | sudo tee -a /etc/apt/sources.list
 fi
 
 if [ -n "$HAS_WINEHQ_SOURCE" ]; then
-  echo -e "#the source of WineHQ Apt \ndeb http://wine.budgetdedicated.com/apt $DISTRIB_CODENAME main" | sudo tee -a /etc/apt/sources.list
+  echo -e "#the source of WineHQ Apt (Lazybuntu 新增)\ndeb http://wine.budgetdedicated.com/apt $DISTRIB_CODENAME main" | sudo tee -a /etc/apt/sources.list
 fi
 
 
