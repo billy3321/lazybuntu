@@ -54,7 +54,7 @@ def main ():
     [entry.set_enabled (False) for entry in sourceslist if entry.invalid == False]
 
     if distro.country_code == "tw" and distro.id == "Ubuntu":
-        twaren_uri = "ftp://ftp.twaren.net.tw/ubuntu"
+        twaren_uri = "ftp://ftp.twaren.net/ubuntu"
         distro.change_server (uri=twaren_uri)
         distro.add_source (uri=twaren_uri, comps=comps, comment="國網中心伺服器 (Lazybuntu 新增)")
         distro.add_source (type="deb-src", uri=twaren_uri, comps=comps, comment="國網中心伺服器 (Lazybuntu 新增)")
