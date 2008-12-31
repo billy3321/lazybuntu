@@ -1,5 +1,5 @@
 #!/bin/sh
-VERSION="0.1.5"
+VERSION="0.1.6"
 
 # build tarball
 mkdir -p build/Lazybuntu
