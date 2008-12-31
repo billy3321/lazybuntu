@@ -24,7 +24,7 @@ def noseeing_yes_no():
     ret = dlg.run ()
     dlg.destroy ()
     if ret == gtk.RESPONSE_YES:
-     os.system( 'scripts/noseeing-inst' );
+     os.system( 'scripts/noseeing-inst' )
 
 def sel_users(selected_cin):
     USERS_LIST=commands.getoutput('cat /etc/passwd | grep bash | cut -d ":" -f 1').split('\n')
@@ -112,10 +112,10 @@ def main():
         if selected_cin == "scim":
             os.system(apt_cmd + "scim-qtimm scim-chewing")
         elif selected_cin == 'gcin':
-            os.system(apt_cmd +'gcin-qt3-immodule' );
+            os.system(apt_cmd +'gcin-qt3-immodule' )
             # install noseeing
             # FIXME: 使用者應該可以選擇不要安裝無蝦米
-            #os.system( 'scripts/noseeing-inst' );
+            #os.system( 'scripts/noseeing-inst' )
             noseeing_yes_no()
 
         user_scope(selected_cin)
