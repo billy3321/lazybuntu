@@ -34,10 +34,12 @@ Linux 下超好玩的全 3D 即時戰略遊戲，畫面相當華麗，音效也�
 在 2003 年發行的商業遊戲，後來很慷慨的開放了全部程式碼。
 </tool>
 
+<!--
+由於網站掛了，暫時先註解
 <tool title="Bos Wars" command="scripts/getdeb.py BosWars 1421" used="0">
 滿不錯的即時戰略遊戲，但以今日的遊戲標準來看，畫面不算很華麗。
 </tool>
-
+-->
 </category>
 
 <category title="模擬器" image="">
